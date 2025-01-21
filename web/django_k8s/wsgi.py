@@ -14,9 +14,9 @@ import dotenv
 
 from django.core.wsgi import get_wsgi_application
 
-CURREN_DIR = pathlib.Path(__file__).resolve().parent
+CURRENT_DIR = pathlib.Path(__file__).resolve().parent
 BASE_DIR = CURRENT_DIR.parent
-ENV_FILE_PATH = BASE_DRI / ".env"
+ENV_FILE_PATH = BASE_DIR / ".env"
 
 dotenv.read_dotenv(str(ENV_FILE_PATH))
 
