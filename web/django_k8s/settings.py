@@ -88,9 +88,7 @@ DB_HOST = os.environ.get("POSTGRES_HOST")
 DB_PORT = os.environ.get("POSTGRES_PORT")
 DB_IS_AVAIL = all([DB_DATABASE, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT])
 
-POSTGRES_READY = str(os.environ.get("POSTGRES_READY")) == "1"
-
-if POSTGRES_READY and DB_IS_AVAIL:
+if DB_IS_AVAIL:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql",
@@ -139,7 +137,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = "/static/"
-STATIC_ROOT = "static"
+STATIC_ROOT = BASE_DIR / "static"
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
