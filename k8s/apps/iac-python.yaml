@@ -15,8 +15,11 @@ spec:
       containers:
         - name: iac-python
           image: codingforentrepreneurs/iac-python:latest
+          env:
+            - name: PORT
+              value: "8181"
           ports:
-            - containerPort: 80
+            - containerPort: 8181
             
 ---
 
@@ -30,6 +33,6 @@ spec:
     - name: http
       protocol: TCP
       port: 80
-      targetPort: 80
+      targetPort: 8181
   selector:
     app: iac-python-deployment
